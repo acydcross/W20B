@@ -1,5 +1,6 @@
 import mariadb
 import dbcreds
+import function
 
 while True:
     print ("1. Login")
@@ -25,3 +26,12 @@ while True:
                     print("Please input your content.")
                     content = input()
                     function.post("username, content")
+    elif select == "2":
+        username = input("Please type your username: ")
+        while True:
+            password = input("Please type your password: ")
+            if len(password) < 6:
+                print("Password too short. Please enter at least 6 characters.")
+                pass
+    else:
+        break

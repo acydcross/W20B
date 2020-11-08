@@ -13,7 +13,13 @@ def signUp(username, password):
             print("A hacker is created!")
         else:
             print("Failed to create a hacker!")
-        finally:
+    except mariadb.ProgrammingError:
+        print("Beepoop. Program error...")
+    except mariadb.DataError:
+        print("Beepoop. Data error...")
+    except mariadb.OperatianalError:
+        print("Beepoop. Connection error...")
+    finally:
             if(cursor != None):
                 cursor.close()
             if(conn != None):
